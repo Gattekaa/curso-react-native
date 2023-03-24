@@ -24,7 +24,7 @@ class Header extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        marginTop: Platform.OS === 'ios' ? 20 : 0,
+        marginTop: Platform.OS === 'ios' ? 20 : 40,
         padding: 10,
         borderBottomWidth: 1,
         borderColor: '#BBB',
