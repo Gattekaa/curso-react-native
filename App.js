@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import { View } from "react-native"
 import Header from "./src/components/Header"
 import Post from "./src/components/Post"
+import Feed from "./src/screens/Feed"
 
 
 export default class App extends Component {
@@ -15,8 +16,7 @@ export default class App extends Component {
     }]
     return (
       <View style={{ flex: 1 }}>
-        <Header />
-        <Post image={require('./assets/imgs/fence.jpg')} comments={comments} />
+        <Feed />
       </View>
     )
   }
