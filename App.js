@@ -1,18 +1,14 @@
-import React, { Component } from "react"
-import { View } from "react-native"
-import Header from "./src/components/Header"
-import Post from "./src/components/Post"
+import React from "react"
+import { Provider } from 'react-redux'
 import MenuNavigator from "./src/Navigator"
-import Feed from "./src/screens/Feed"
-import { registerRootComponent } from "expo"
+import storeConfig from "./src/store/storeConfig"
+const store = storeConfig()
+import {name as appName} from './app.json'
 
-
-export default class App extends Component {
-  render() {
-    return (
-      <View style={{ flex: 1 }}>
+const Redux = () => (
+    <Provider store={store}>
         <MenuNavigator />
-      </View>
-    )
-  }
-}
+    </Provider> 
+)
+
+export default Redux
