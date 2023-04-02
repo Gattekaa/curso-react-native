@@ -5,15 +5,28 @@ import Feed from './screens/Feed'
 import { NavigationContainer,  } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import AddPhoto from './screens/AddPhoto';
+import { createStackNavigator } from '@react-navigation/stack'
 import Profile from './screens/Profile';
 import { createSwitchNavigator } from '@react-navigation/compat';
 import Login from './screens/Login';
+import Register from './screens/Register';
 const loginOrProfileRouter = createSwitchNavigator({
      Perfil: Profile,
-     Auth: Login
+     Auth: Login,
+     Auth: MyStack
  }, {
    initialRouteName: 'Profile'
  })
+
+ function MyStack() {
+     const Stack = createStackNavigator()
+     return (
+       <Stack.Navigator initialRouteName='Login'>
+         <Stack.Screen name="Login" component={Login} />
+         <Stack.Screen name="Register" component={Register} />
+       </Stack.Navigator>
+     )
+   }
  
 
 export default function MenuNavigator() {
