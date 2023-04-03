@@ -1,6 +1,6 @@
-import { ADD_POST } from '../actions/actionTypes'
+import { ADD_POST, ADD_COMMENT } from '../actions/actionTypes'
 
-const initialState = { 
+const initialState = {
     posts: [{
         id: Math.random(),
         nickname: 'Rafael Pereira Filho',
@@ -18,7 +18,7 @@ const initialState = {
         nickname: 'Francisco Leandro Lima',
         email: 'fllima@gmail.com',
         image: require('../../../assets/imgs/bw.jpg'),
-        comments:[]
+        comments: []
     }]
 }
 
@@ -31,7 +31,21 @@ const reducer = (state = initialState, action) => {
                     ...action.payload
                 })
             }
-        default:    
+        case ADD_COMMENT:
+            return {
+                ...state, posts: state.posts.map(post => {
+                    if (post.id === action.payload.postId) {
+                        if (post.comments) {
+                            post.comments = post.comments.concat(action.payload.comment);
+                        } else {
+                            post.comments = [action.payload.comment]
+                        };
+                    };
+
+                    return post;
+                })
+            };
+        default:
             return state
     }
 }
