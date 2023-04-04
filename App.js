@@ -5,9 +5,6 @@ import storeConfig from "./src/store/storeConfig"
 const store = storeConfig()
 import {name as appName} from './app.json'
 
-import axios from "axios"
-axios.defaults.baseURL = 'https://lambelambe-cf330-default-rtdb.firebaseio.com/'
-
 const Redux = () => (
     <Provider store={store}>
         <MenuNavigator />
