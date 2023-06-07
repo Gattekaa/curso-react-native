@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-
+import firebase from './src/services/firebaseConnection';
 import { Container, Titulo, Nome, BotaoSujeito, BotaoText } from './src/styles';
 
 export default function App() {
