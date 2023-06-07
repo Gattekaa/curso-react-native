@@ -19,7 +19,7 @@ import Header from "../../components/Header";
 
 import { Background, Input, SubmitButton, SubmitText } from "./styles";
 
-import Picker from "../../components/Picker/index.android";
+import Picker from "../../components/Picker";
 
 export default function New() {
   const navigation = useNavigation();
@@ -75,7 +75,7 @@ export default function New() {
 
         valor: parseFloat(valor),
 
-        date: format(new Date(), "dd/MM/yy"),
+        date: format(new Date(), "dd/MM/yyyy"),
       });
 
     //Atualizar o nosso saldo
