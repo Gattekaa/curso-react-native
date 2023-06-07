@@ -1,16 +1,36 @@
 import React from "react";
-import { createStackNavigator } from "@react-navigation/stack";
+import { createDrawerNavigator } from "@react-navigation/drawer";
 
-import SignIn from "../pages/SignIn";
+import Home from "../pages/Home";
+import New from "../pages/New";
+import Profile from "../pages/Profile";
 
-const AuthStack = createStackNavigator();
+const AppDrawer = createDrawerNavigator();
 
-function AuthRoutes() {
+function AppRoutes() {
   return (
-    <AuthStack.Navigator>
-      <AuthStack.Screen name="SignIn" component={SignIn} />
-    </AuthStack.Navigator>
+    <AppDrawer.Navigator
+      drawerStyle={{
+        backgroundColor: "#171717",
+      }}
+      drawerContentOptions={{
+        labelStyle: {
+          fontWeight: "bold",
+        },
+        activeTintColor: "#FFF",
+        activeBackgroundColor: "#00b94a",
+        inactiveBackgroundColor: "#000",
+        inactiveTintColor: "#DDD",
+        itemStyle: {
+          marginVertical: 5,
+        },
+      }}
+    >
+      <AppDrawer.Screen name="Home" component={Home} />
+      <AppDrawer.Screen name="Registrar" component={New} />
+      <AppDrawer.Screen name="Perfil" component={Profile} />
+    </AppDrawer.Navigator>
   );
 }
 
-export default AuthRoutes;
+export default AppRoutes;
